@@ -2,8 +2,7 @@ services:
   - type: web
     name: poshan-backend
     env: python
-    pythonVersion: "3.11.0"
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install --upgrade pip && pip install flask flask-cors openpyxl gunicorn PyJWT "pandas<3"
     startCommand: gunicorn app:app
     envVars:
       - key: SECRET_KEY
